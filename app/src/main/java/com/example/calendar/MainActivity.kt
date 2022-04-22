@@ -22,15 +22,55 @@ class MainActivity : AppCompatActivity() {
         binding.kalendarz.setMinDate(System.currentTimeMillis());
 
 
+            val calendar = Calendar.getInstance()
 
-        binding.button.setOnClickListener(View.OnClickListener {
-           val data =  binding.kalendarz.date
-           var nowy =  SimpleDateFormat("dd/MM/yy")
+        binding.kalendarz.setOnDateChangeListener { view, year, month, dayOfMonth ->
+            // set the calendar date as calendar view selected date
+            calendar.set(year,month,dayOfMonth)
 
-        binding.textwyjazd.text =
+            // set this date as calendar view selected date
+            binding.kalendarz.date = calendar.timeInMillis
+
+            // button click listener
+            binding.button.setOnClickListener {
+                // get calendar view selected date
+                val selectedDate:Long = binding.kalendarz.date
+
+                // set the calendar date as calendar view selected date
+                calendar.timeInMillis = selectedDate
+
+                // format the calendar view selected date
+                val dateFormatter = DateFormat.getDateInstance(DateFormat.MEDIUM)
+                binding.textwyjazd.text = "Selected date\n"
+                binding.textwyjazd.append(dateFormatter.format(calendar.time))
+            }
+
+        binding.button2.setOnClickListener {
+            // get calendar view selected date
+            val selectedDate:Long = binding.kalendarz.date
+
+            // set the calendar date as calendar view selected date
+            calendar.timeInMillis = selectedDate
+
+            // format the calendar view selected date
+            val dateFormatter = DateFormat.getDateInstance(DateFormat.MEDIUM)
+            binding.textsrodek.text = "Selected date\n"
+            binding.textsrodek.append(dateFormatter.format(calendar.time))
+        }
+
+        binding.button3.setOnClickListener {
+            // get calendar view selected date
+            val selectedDate:Long = binding.kalendarz.date
+
+            // set the calendar date as calendar view selected date
+            calendar.timeInMillis = selectedDate
+
+            // format the calendar view selected date
+            val dateFormatter = DateFormat.getDateInstance(DateFormat.MEDIUM)
+            binding.textpowrot.text = "Selected date\n"
+            binding.textpowrot.append(dateFormatter.format(calendar.time))
+        }
 
 
-        })
-    }
-
-}
+        }
+    }}
