@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
             // set the calendar date as calendar view selected date
             calendar.set(year,month,dayOfMonth)
 
-            // set this date as calendar view selected date
+            // set this date as calendar view selected dat//e
             binding.kalendarz.date = calendar.timeInMillis
 
             // button click listener
