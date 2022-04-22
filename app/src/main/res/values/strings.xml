@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Calendar</string>
+    <string name="wyjazd">wyjazd</string>
+    <string name="srodek">srodek</string>
+    <string name="powrot">powrot</string>
+</resources>
